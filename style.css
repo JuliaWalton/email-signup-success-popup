@@ -1,0 +1,218 @@
+:root {
+    --success-color: #2ecc71;
+    --error-color: #e74c3c;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+/*
+  6. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/*
+/**********************************/
+/************ GENERAL STYLES ******/
+/**********************************/
+
+.register.hidden,
+.success.hidden {
+    display: none;
+}
+
+.register.active,
+.success.active {
+    display: flex;
+}
+
+body {
+    background-color:hsl(234, 29%, 20%);
+    color: hsl(235, 18%, 26%);
+    display: grid;
+    place-content: center;
+    font-family: Roboto, sans-serif;
+}
+
+.register {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+.desc {
+    max-width: 300px;
+    
+}
+
+.register-text {
+    display: grid;
+    gap: 1rem;
+    margin-inline: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    display: flex;
+    gap: 1rem;
+    padding-bottom: .5rem;
+    max-width: 300px;
+    align-items: center;
+}
+
+.success {
+    background-color: white;
+    flex-direction: column;
+    width: 400px;
+    padding: 2rem 2.5rem;
+    gap: 2rem;
+    border-radius: 1rem;
+
+}
+
+.desc span {
+    font-weight: 700;
+}
+
+/**********************************/
+/*************** FORM STYLES ******/
+/**********************************/
+
+.label {
+    font-weight: 700;
+    font-size: .75rem;
+    /* margin-top: 1rem; */
+}
+
+.form {
+    display: grid;
+    gap: 1.25rem;
+}
+
+input {
+    padding: .75rem 1rem;
+    border-radius: .5rem;
+    border: 2px solid rgba(146, 148, 160, 0.404);
+}
+
+input::placeholder {
+    color: rgba(146, 148, 160);
+    opacity: 1;
+}
+
+input:focus {
+    outline: 2px solid hsl(234, 29%, 20%);
+}
+
+button {
+    padding: 1rem 1rem;
+    background-color: hsl(234, 29%, 20%);
+    color: white;
+    border-radius: .5rem;
+    border: none;
+    font-size: .85rem;
+    font-weight: 600;
+    letter-spacing: .7px;
+    color: hsl(230, 12%, 81%);
+}
+
+button:hover,
+button:focus {
+    background: linear-gradient(hsl(4, 100%, 67%), hsla(320, 73%, 41%, 0.568));
+    color: hsl(234, 29%, 20%);
+    cursor: pointer;
+    transition: background-color 0.15s linear, color 0.15s linear;
+}
+
+input.error {
+    border: 2px solid red;
+    background-color: #ec3e2b27;
+}
+
+input.error::placeholder {
+    color: rgb(255, 0, 0);
+    opacity: 1;
+}
+
+input.error:focus {
+    outline: 1px solid hsl(234, 29%, 20%);
+}
+
+small {
+    display: none;
+    /* color: red; */
+}
+
+small.error {
+    display: inline;
+    color: red;
+    font-weight: 700;
+    font-size: .75rem;
+    /* margin-bottom: -80px; */
+}
+
+@media (min-width: 800px) {
+    body {
+        min-height: 100vh;
+    }
+    .register {
+        flex-direction: row-reverse;
+        padding: 1rem;
+        border-radius: 1rem;
+        max-height: 600px;
+    }
+    .register-text {
+        place-content: center;
+        gap: 1.5rem;
+        width: 50%;
+        margin: 0;
+        /* padding: 1rem; */
+    }
+    .desc, li {
+        max-width: 380px;
+    }
+    .register-img{ 
+        object-fit: contain;
+        /* width: 100%; */
+    }  
+    /* .register-img > .picture > img {
+    width: 100%;
+    height: auto;
+    object-fit: contain; }*/
+
+}
+
+.flex-mini {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: -.75rem;
+    margin-top: 1rem;
+    align-items: center;
+}
