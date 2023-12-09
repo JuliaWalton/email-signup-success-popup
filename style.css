@@ -1,9 +1,18 @@
 :root {
-    --success-color: #2ecc71;
-    --error-color: #e74c3c;
+    --error-clr: #e74c3c;
+    --error-shadow: #ec3e2b27;
+    --darkblue-clr: hsl(234, 29%, 20%);
+    --darkgrey-clr: hsl(235, 18%, 26%);
+    --lightgrey-clr: hsl(230, 12%, 81%);
+
+    --ff-main: Roboto, sans-serif;
+    --fs-bold: 700;
+    --fs-regular: 500;
 }
 
-* {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     margin: 0;
 }
@@ -17,9 +26,6 @@ svg {
     max-width: 100%;
 }
 
-/*
-  6. Remove built-in form typography styles
-*/
 input,
 button,
 textarea,
@@ -27,7 +33,6 @@ select {
     font: inherit;
 }
 
-/*
 /**********************************/
 /************ GENERAL STYLES ******/
 /**********************************/
@@ -43,11 +48,12 @@ select {
 }
 
 body {
-    background-color:hsl(234, 29%, 20%);
-    color: hsl(235, 18%, 26%);
+    background-color:var(--darkblue-clr);
+    color: var(--darkgrey-clr);
     display: grid;
     place-content: center;
-    font-family: Roboto, sans-serif;
+    font-family: var(--ff-main);
+    font-size: var(--fs-regular);
 }
 
 .register {
@@ -60,11 +66,10 @@ body {
 
 .title {
     font-size: 2.5rem;
-    font-weight: 700;
+    font-weight: var(--fs-bold);
 }
 .desc {
     max-width: 300px;
-    
 }
 
 .register-text {
@@ -93,12 +98,11 @@ li {
     width: 400px;
     padding: 2rem 2.5rem;
     gap: 2rem;
-    border-radius: 1rem;
-
+    border-radius: 2rem;
 }
 
 .desc span {
-    font-weight: 700;
+    font-weight: var(--fs-bold);
 }
 
 /**********************************/
@@ -106,9 +110,8 @@ li {
 /**********************************/
 
 .label {
-    font-weight: 700;
+    font-weight: var(--fs-bold);
     font-size: .75rem;
-    /* margin-top: 1rem; */
 }
 
 .form {
@@ -128,91 +131,91 @@ input::placeholder {
 }
 
 input:focus {
-    outline: 2px solid hsl(234, 29%, 20%);
+    outline: 2px solid var(--darkblue-clr);
 }
 
 button {
     padding: 1rem 1rem;
-    background-color: hsl(234, 29%, 20%);
+    background-color: var(--darkblue-clr);
     color: white;
     border-radius: .5rem;
     border: none;
     font-size: .85rem;
-    font-weight: 600;
+    font-weight: var(--fs-bold);
     letter-spacing: .7px;
-    color: hsl(230, 12%, 81%);
+    color: var(--lightgrey-clr);
 }
 
 button:hover,
 button:focus {
     background: linear-gradient(hsl(4, 100%, 67%), hsla(320, 73%, 41%, 0.568));
-    color: hsl(234, 29%, 20%);
+    color: var(--darkblue-clr);
     cursor: pointer;
     transition: background-color 0.15s linear, color 0.15s linear;
 }
 
 input.error {
-    border: 2px solid red;
-    background-color: #ec3e2b27;
+    border: 2px solid var(--error-clr);
+    background-color: var(--error-shadow);
 }
 
 input.error::placeholder {
-    color: rgb(255, 0, 0);
+    color: var(--error-clr);
     opacity: 1;
 }
 
 input.error:focus {
-    outline: 1px solid hsl(234, 29%, 20%);
+    outline: 1px solid var(--darkblue-clr);
 }
 
 small {
     display: none;
-    /* color: red; */
 }
 
 small.error {
     display: inline;
-    color: red;
-    font-weight: 700;
+    color: var(--error-clr);
+    font-weight: var(--fs-bold);
     font-size: .75rem;
     /* margin-bottom: -80px; */
 }
 
-@media (min-width: 800px) {
-    body {
-        min-height: 100vh;
-    }
-    .register {
-        flex-direction: row-reverse;
-        padding: 1rem;
-        border-radius: 1rem;
-        max-height: 600px;
-    }
-    .register-text {
-        place-content: center;
-        gap: 1.5rem;
-        width: 50%;
-        margin: 0;
-        /* padding: 1rem; */
-    }
-    .desc, li {
-        max-width: 380px;
-    }
-    .register-img{ 
-        object-fit: contain;
-        /* width: 100%; */
-    }  
-    /* .register-img > .picture > img {
-    width: 100%;
-    height: auto;
-    object-fit: contain; }*/
-
-}
-
-.flex-mini {
+.flex-error {
     display: flex;
     justify-content: space-between;
     margin-bottom: -.75rem;
     margin-top: 1rem;
     align-items: center;
+}
+
+/**********************************/
+/************ DESKTOP STYLES ******/
+/**********************************/
+
+@media (min-width: 800px) {
+    body {
+        height: 100vh;
+    }
+    .register {
+        flex-direction: row-reverse;
+        gap: 3rem;
+        padding: 1.25rem;
+        border-radius: 2rem;
+    }
+    .title {
+        font-size: 3rem;
+    }
+    .register-text {
+        place-content: center;
+        gap: 1.15rem;
+        width: 50%;
+        margin: 0;
+        padding: 1rem;
+    }
+    .desc, li {
+        max-width: 380px;
+    }  
+    img {
+        max-height: 500px;
+    }
 }
