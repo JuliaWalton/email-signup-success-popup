@@ -37,6 +37,24 @@ select {
 /************ GENERAL STYLES ******/
 /**********************************/
 
+body {
+    background-color: var(--darkblue-clr);
+    color: var(--darkgrey-clr);
+    display: grid;
+    place-content: center;
+    font-family: var(--ff-main);
+    font-size: var(--fs-regular);
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: var(--fs-bold);
+}
+
+.desc {
+    max-width: 300px;
+}
+
 .register.hidden,
 .success.hidden {
     display: none;
@@ -47,15 +65,6 @@ select {
     display: flex;
 }
 
-body {
-    background-color:var(--darkblue-clr);
-    color: var(--darkgrey-clr);
-    display: grid;
-    place-content: center;
-    font-family: var(--ff-main);
-    font-size: var(--fs-regular);
-}
-
 .register {
     background-color: white;
     display: flex;
@@ -64,19 +73,20 @@ body {
     gap: 2rem;
 }
 
-.title {
-    font-size: 2.5rem;
-    font-weight: var(--fs-bold);
-}
-.desc {
-    max-width: 300px;
-}
-
 .register-text {
     display: grid;
     gap: 1rem;
     margin-inline: 1.5rem;
     margin-bottom: 2rem;
+}
+
+.success {
+    background-color: white;
+    flex-direction: column;
+    width: 400px;
+    padding: 2rem 2.5rem;
+    gap: 2rem;
+    border-radius: 2rem;
 }
 
 ul {
@@ -90,15 +100,6 @@ li {
     padding-bottom: .5rem;
     max-width: 300px;
     align-items: center;
-}
-
-.success {
-    background-color: white;
-    flex-direction: column;
-    width: 400px;
-    padding: 2rem 2.5rem;
-    gap: 2rem;
-    border-radius: 2rem;
 }
 
 .desc span {
